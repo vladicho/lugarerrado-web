@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>LugarErrado — Vídeos</title>
+  <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+  <main class="container">
+    <h1>LugarErrado</h1>
+    <p class="subtitle">Escolha uma fonte de vídeo para continuar.</p>
+
+    <form id="download-form">
+      <label for="source">Tipo de link</label>
+      <select id="source" name="source">
+        <option value="youtube">YouTube</option>
+        <option value="m3u8">Playlist M3U8</option>
+      </select>
+
+      <label for="url">Link do vídeo ou playlist</label>
+      <input id="url" name="url" type="url" placeholder="Cole aqui o link" required>
+
+      <div class="actions">
+        <button id="open-site" type="button" class="secondary">Abrir link</button>
+        <button id="download" type="submit">Verificar link</button>
+      </div>
+    </form>
+
+    <section class="status-panel" aria-live="polite">
+      <p id="status">Aguardando link.</p>
+      <progress id="progress" value="0" max="100"></progress>
+    </section>
+
+    <section id="player-section" hidden>
+      <h2>Reprodução</h2>
+      <video id="player" controls playsinline></video>
+    </section>
+
+    <p class="notice">
+      Use apenas conteúdo que você tem autorização para acessar.
+      O download ainda está em desenvolvimento.
+    </p>
+  </main>
+  <script src="https://cdn.jsdelivr.net/npm/hls.js@1/dist/hls.min.js"></script>
+  <script src="/app.js" defer></script>
+</body>
+</html>
